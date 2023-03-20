@@ -1,19 +1,39 @@
-import { ApiProvider } from "@reduxjs/toolkit/dist/query/react";
+import { Provider } from "react-redux";
 import Articles from "./components/Articles";
 import Footer from "./layouts/Footer";
 import Navbar from "./layouts/Navbar";
-import { articleApi } from "./services/actions/apiService";
+import { store } from "./services/actions/store";
+
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import PageNotFound from "./components/PageNotFound";
+import ArticlesDetails from "./pages/articlesDetails";
+import CreateArticle from "./pages/CreateArticle";
 
 export default function App() {
   return (
     <>
-      <ApiProvider api={articleApi}>
-        <div className="flex h-full justify-between flex-col">
+      <Provider store={store}>
+        <Router>
           <Navbar />
-          <Articles />
+          <Switch>
+            <Route exact path="/">
+              <Articles />
+            </Route>
+            <Route path="/blog/:id">
+              <ArticlesDetails />
+            </Route>
+            <Route path="*">
+              <PageNotFound />
+            </Route>
+          </Switch>
+          {/* <Routes>
+            <Route exact path="/" element={<Articles />} />
+            <Route path="/a/:id" element={<ArticlesDetails/>} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes> */}
           <Footer />
-        </div>
-      </ApiProvider>
+        </Router>
+      </Provider>
     </>
   );
 }
