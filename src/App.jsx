@@ -3,11 +3,11 @@ import Articles from "./components/Articles";
 import Footer from "./layouts/Footer";
 import Navbar from "./layouts/Navbar";
 import { store } from "./services/actions/store";
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PageNotFound from "./components/PageNotFound";
-import ArticlesDetails from "./pages/articlesDetails";
-import CreateArticle from "./pages/CreateArticle";
+import ArticlesDetails from "./pages/ArticlesDetails";
+
+
 
 export default function App() {
   return (
