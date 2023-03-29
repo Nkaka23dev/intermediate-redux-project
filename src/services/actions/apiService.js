@@ -2,10 +2,10 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 export const articleApi = createApi({
     reducerPath: "articleApi",
-    baseQuery: fetchBaseQuery({ baseUrl: "https://newsapi.org/"}),
+    baseQuery: fetchBaseQuery({ baseUrl: "https://news-proxy.netlify.app/" }),
     endpoints: (builder) => ({
         getAllArticles: builder.query({
-            query: () => "v2/everything?q=tesla&from=2023-02-19&sortBy=publishedAt&apiKey=3a20a74863744e82b8f78a52f3760908"
+            query: () => "api/top-headlines?country=us&apiKey=3a20a74863744e82b8f78a52f3760908"
         })
     })
 })

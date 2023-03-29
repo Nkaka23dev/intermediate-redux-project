@@ -17,7 +17,6 @@ export default function Publishers({articles}) {
           </div>
         );
       })}
-      {/* <div>{}</div> */}
     </div>
   );
 }
