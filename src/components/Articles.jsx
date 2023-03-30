@@ -7,6 +7,7 @@ import {
 } from "../services/actions/store";
 import Article from "./Article";
 import PageLoading from "./PageLoading";
+import Publishers from "./Publishers";
 
 export default function Articles() {
   const { data, error, isLoading } = useGetAllArticlesQuery();
@@ -24,12 +25,11 @@ export default function Articles() {
           article.title?.toLowerCase().includes(searched.toLowerCase())
         );
         dispatch(setFilteredArticles(response.slice(0, 10)));
-       
       }
       const articles = data.articles.slice(0, 10);
 
       dispatch(setOnPageArticles(articles));
-      
+
       const neres = data.articles.filter(
         (article) => article.source.name === "Frandroid"
       );
@@ -44,7 +44,10 @@ export default function Articles() {
       )}
       {isLoading && <PageLoading />}
       {data && (
-        <Article articles={searched ? filteredArticles : onPageArticles} />
+        <>
+          <Article articles={searched ? filteredArticles : onPageArticles} />
+          <Publishers />
+        </>
       )}
     </section>
   );

@@ -3,7 +3,9 @@ import { articleApi } from "./apiService";
 
 const initialState = {
   onPageArticles: [],
+  publishers: [],
   filteredArticles: [],
+  articleDetails: [],
   searched: ""
 }
 
@@ -14,20 +16,28 @@ const useSlice = createSlice({
     setOnPageArticles: (state, action) => {
       state.onPageArticles = action.payload;
     },
-    
+    setArticleDetails: (state, action) => {
+      state.onPageArticles = action.payload;
+    },
+    setPublisher: (state, action) => {
+      state.publishers = action.payload;
+    },
+
     setSearched: (state, action) => {
       state.searched = action.payload;
     },
     setFilteredArticles: (state, action) => {
-        state.filteredArticles = action.payload
-      }
+      state.filteredArticles = action.payload
+    }
   }
 })
 
 export const {
   setOnPageArticles,
   setSearched,
-  setFilteredArticles
+  setFilteredArticles,
+  setArticleDetails,
+  setPublisher
 } = useSlice.actions;
 
 export const store = configureStore({

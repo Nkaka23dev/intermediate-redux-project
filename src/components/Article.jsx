@@ -1,13 +1,12 @@
 import React from "react";
 import { BsArrowRight, BsArrowDown } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import Publishers from "./Publishers";
 
 export default function Article({ articles }) {
   return (
     <div className=" grid grid-cols-4 md:grid-cols-1 gap-24 items-start">
       {/* All articles */}
-      <div className="col-span-3">
+      <div className="col-span-full">
         <h1 className="text-2xl flex items-center gap-3  font-bold tracking-wide uppercase  static top-3">
           All Articles
           <BsArrowDown className="text-lg" />
@@ -47,7 +46,6 @@ export default function Article({ articles }) {
         </div>
       </div>
       {/* news publishers */}
-      <Publishers articles={articles} />
     </div>
   );
 }
