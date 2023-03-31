@@ -6,7 +6,8 @@ const initialState = {
   publishers: [],
   filteredArticles: [],
   articleDetails: [],
-  searched: ""
+  searched: "",
+  publisherId: ""
 }
 
 const useSlice = createSlice({
@@ -22,13 +23,16 @@ const useSlice = createSlice({
     setPublisher: (state, action) => {
       state.publishers = action.payload;
     },
-
+    setPublisherId: (state, action) => {
+      state.publisherId = action.payload;
+    },
     setSearched: (state, action) => {
       state.searched = action.payload;
     },
     setFilteredArticles: (state, action) => {
       state.filteredArticles = action.payload
     }
+
   }
 })
 
@@ -37,7 +41,9 @@ export const {
   setSearched,
   setFilteredArticles,
   setArticleDetails,
-  setPublisher
+  setPublisher,
+  publisherId,
+  setPublisherId
 } = useSlice.actions;
 
 export const store = configureStore({

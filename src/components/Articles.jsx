@@ -45,7 +45,10 @@ export default function Articles() {
       {isLoading && <PageLoading />}
       {data && (
         <>
-          <Article articles={searched ? filteredArticles : onPageArticles} />
+          <Article
+            title={"All Articles"}
+            articles={searched ? filteredArticles : onPageArticles}
+          />
           <Publishers />
         </>
       )}

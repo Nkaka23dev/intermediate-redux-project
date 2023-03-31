@@ -9,8 +9,14 @@ export const articleApi = createApi({
         }),
         getPublishers: builder.query({
             query: () => "top-headlines/sources?apiKey=3a20a74863744e82b8f78a52f3760908"
+        }),
+        getPublisherArticals: builder.query({
+            query: (publisher) => `everything?sources=${publisher}&apiKey=3a20a74863744e82b8f78a52f3760908`
         })
     })
 })
 
-export const { useGetAllArticlesQuery, useGetPublishersQuery } = articleApi;
+export const {
+    useGetAllArticlesQuery,
+    useGetPublishersQuery,
+    useGetPublisherArticalsQuery } = articleApi;
