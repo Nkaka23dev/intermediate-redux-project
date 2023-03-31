@@ -11,6 +11,7 @@ import Publishers from "./Publishers";
 
 export default function Articles() {
   const { data, error, isLoading } = useGetAllArticlesQuery();
+
   const dispatch = useDispatch();
   const searched = useSelector((state) => state.articles.searched);
   const onPageArticles = useSelector((state) => state.articles.onPageArticles);

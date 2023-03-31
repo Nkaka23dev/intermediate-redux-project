@@ -32,7 +32,6 @@ const useSlice = createSlice({
     setFilteredArticles: (state, action) => {
       state.filteredArticles = action.payload
     }
-
   }
 })
 

@@ -8,6 +8,7 @@ import PageNotFound from "./components/PageNotFound";
 import ArticlesDetails from "./pages/ArticlesDetails";
 import PublisherDetails from "./pages/PublisherDetails";
 
+
 export default function App() {
   return (
     <>
@@ -22,7 +23,7 @@ export default function App() {
               <ArticlesDetails />
             </Route>
             <Route path="/publisher/:id">
-              <PublisherDetails/>
+              <PublisherDetails />
             </Route>
             <Route path="*">
               <PageNotFound />
