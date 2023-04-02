@@ -22,17 +22,12 @@ export default function App() {
               <ArticlesDetails />
             </Route>
             <Route path="/publisher/:id">
-              <PublisherDetails/>
+              <PublisherDetails />
             </Route>
             <Route path="*">
               <PageNotFound />
             </Route>
           </Switch>
-          {/* <Routes>
-            <Route exact path="/" element={<Articles />} />
-            <Route path="/a/:id" element={<ArticlesDetails/>} />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes> */}
           <Footer />
         </Router>
       </Provider>
