@@ -6,6 +6,7 @@ import { store } from "./services/actions/store";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PageNotFound from "./components/PageNotFound";
 import ArticlesDetails from "./pages/ArticlesDetails";
+import PublisherDetails from "./pages/PublisherDetails";
 
 
 export default function App() {
@@ -21,9 +22,9 @@ export default function App() {
             <Route path="/blog/:id">
               <ArticlesDetails />
             </Route>
-            {/* <Route path="/publisher/:id">
+            <Route path="/publisher/:id">
               <PublisherDetails />
-            </Route> */}
+            </Route>
             <Route path="*">
               <PageNotFound />
             </Route>
