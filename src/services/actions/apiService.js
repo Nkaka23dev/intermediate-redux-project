@@ -2,8 +2,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
-console.log("keyyyyyyyyyyyyyyyyyyyyy", apiKey);
-
 export const articleApi = createApi({
     reducerPath: "articleApi",
     baseQuery: fetchBaseQuery({ baseUrl: "https://news-proxy.netlify.app/api/" }),
