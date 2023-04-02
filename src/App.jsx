@@ -8,7 +8,6 @@ import PageNotFound from "./components/PageNotFound";
 import ArticlesDetails from "./pages/ArticlesDetails";
 import PublisherDetails from "./pages/PublisherDetails";
 
-
 export default function App() {
   return (
     <>

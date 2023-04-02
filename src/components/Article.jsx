@@ -26,7 +26,7 @@ export default function Article({ articles, title }) {
                       }`}
                       alt=""
                     />
-                    <div className=" text-sm mt-auto py-6 px-2 space-y-3 flex flex-col">
+                    <div className=" text-sm mt-auto py-6 px-2 space-y-3 w-full flex flex-col">
                       <h4 className="capitalize text-gray-600 text-[1rem] leading-6  shadow-red-600">
                         {article.title}
                       </h4>
