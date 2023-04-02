@@ -7,12 +7,15 @@ import { setSearched } from "../services/actions/store";
 export default function Navbar() {
   const searched = useSelector((state) => state.articles.searched);
   const dispatch = useDispatch();
-
+  console.log(searched);
   return (
     <section className="shadow-md fixed left-0 right-0 top-0 w-full bg-white z-50">
       <div className="max-w-6xl  mx-auto  py-6 flex gap-10 justify-between items-center flex-wrap md:flex-col">
         <div>
-          <Link to="/" className="text-3xl font-bold text-red-600 cursor-pointer">
+          <Link
+            to="/"
+            className="text-3xl font-bold text-red-600 cursor-pointer"
+          >
             News Article
           </Link>
         </div>
@@ -29,18 +32,18 @@ export default function Navbar() {
           </button>
         </div>
         <div className="flex">
-              <Link
-                to="/"
-                className="hover:bg-red-400 duration-300 hover:text-white text-lg underline p-2 rounded-xl  cursor-pointer"
-              >
-                Home
-              </Link>
-              <Link
-                to="#"
-                className="hover:bg-red-400 duration-300 hover:text-white text-lg underline p-2 rounded-xl  cursor-pointer"
-              >
-                Create Article
-              </Link>
+          <Link
+            to="/"
+            className="hover:bg-red-400 duration-300 hover:text-white text-lg underline p-2 rounded-xl  cursor-pointer"
+          >
+            Home
+          </Link>
+          <Link
+            to="#"
+            className="hover:bg-red-400 duration-300 hover:text-white text-lg underline p-2 rounded-xl  cursor-pointer"
+          >
+            Create Article
+          </Link>
         </div>
       </div>
     </section>

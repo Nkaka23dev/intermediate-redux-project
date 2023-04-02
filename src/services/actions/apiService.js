@@ -1,17 +1,27 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
+const { VITE_API_KEY, VITE_API_URL } = import.meta.env;
+
 export const articleApi = createApi({
     reducerPath: "articleApi",
-    baseQuery: fetchBaseQuery({ baseUrl: "https://news-proxy.netlify.app/api/" }),
+    baseQuery: fetchBaseQuery({
+        baseUrl: VITE_API_URL,
+        headers: {
+            "X-Api-Key": VITE_API_KEY,
+        },
+    }),
     endpoints: (builder) => ({
         getAllArticles: builder.query({
-            query: () => "top-headlines?country=us&apiKey=3a20a74863744e82b8f78a52f3760908"
+            query: () => `top-headlines?country=us&pageSize=10`
         }),
         getPublishers: builder.query({
-            query: () => "top-headlines/sources?apiKey=3a20a74863744e82b8f78a52f3760908"
+            query: () => `top-headlines/sources`
         }),
         getPublisherArticals: builder.query({
-            query: (publisher) => `everything?sources=${publisher}&apiKey=3a20a74863744e82b8f78a52f3760908`
+            query: (publisher) => `everything?sources=${publisher}&pageSize=10`
+        }),
+        getSearchedArticles: builder.query({
+            query: (searched) => `everything?q=${searched}&pageSize=10`
         })
     })
 })
@@ -19,4 +29,6 @@ export const articleApi = createApi({
 export const {
     useGetAllArticlesQuery,
     useGetPublishersQuery,
-    useGetPublisherArticalsQuery } = articleApi;
+    useGetPublisherArticalsQuery,
+    useGetSearchedArticlesQuery
+} = articleApi;

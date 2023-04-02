@@ -11,7 +11,6 @@ export default function Article({ articles, title }) {
           {title}
           <BsArrowDown className="text-lg" />
         </h1>
-
         {articles.length > 0 ? (
           <div className="grid grid-cols-3 gap-7 md:grid-cols-1 mt-10">
             {articles.map((article, indx) => {
@@ -27,7 +26,7 @@ export default function Article({ articles, title }) {
                       }`}
                       alt=""
                     />
-                    <div className=" text-sm mt-auto py-6 px-2 space-y-3 flex flex-col">
+                    <div className=" text-sm mt-auto py-6 px-2 space-y-3 w-full flex flex-col">
                       <h4 className="capitalize text-gray-600 text-[1rem] leading-6  shadow-red-600">
                         {article.title}
                       </h4>
@@ -44,10 +43,9 @@ export default function Article({ articles, title }) {
             })}
           </div>
         ) : (
-          <h1 className="text-center text-3xl mt-32">No Articles Yet!</h1>
+          <h1 className="text-center text-3xl mt-32 text-sky-500">No Articles Found!!</h1>
         )}
       </div>
-      {/* news publishers */}
     </div>
   );
 }
