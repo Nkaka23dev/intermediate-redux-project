@@ -5,6 +5,7 @@ import ErrorAndLoading from "../components/ErrorAndLoading";
 export default function ArticlesDetails() {
   const { id } = useParams();
   const { data, error, isLoading } = useGetAllArticlesQuery();
+  
   return (
     <section>
       <ErrorAndLoading error={error} isLoading={isLoading} />

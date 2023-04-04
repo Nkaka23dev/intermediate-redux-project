@@ -2,12 +2,21 @@ import React, { useState } from "react";
 import { TfiSearch } from "react-icons/tfi";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { setSearched } from "../services/actions/store";
+import { setSearched as setSearchedAction } from "../services/actions/store";
 
 export default function Navbar() {
-  const searched = useSelector((state) => state.articles.searched);
+  const [search, setSearch] = useState("");
   const dispatch = useDispatch();
-  console.log(searched);
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const handleSearchClick = () => {
+    dispatch(setSearchedAction(search));
+    setSearch("");
+  };
+
   return (
     <section className="shadow-md fixed left-0 right-0 top-0 w-full bg-white z-50">
       <div className="max-w-6xl  mx-auto  py-6 flex gap-10 justify-between items-center flex-wrap md:flex-col">
@@ -21,13 +30,16 @@ export default function Navbar() {
         </div>
         <div className="flex-1 relative cursor-pointer">
           <input
-            value={searched}
+            value={search}
             placeholder="Search.."
             type="text"
-            onChange={(e) => dispatch(setSearched(e.target.value))}
+            onChange={handleSearchChange}
             className="w-full px-5  border py-2 rounded-full border-gray-500 focus:outline-0"
           />
-          <button className="absolute right-3 top-2 cursor-pointer">
+          <button
+            onClick={handleSearchClick}
+            className="absolute right-3 top-2 cursor-pointer hover:scale-105"
+          >
             <TfiSearch className="text-2xl text-gray-500 " />
           </button>
         </div>
