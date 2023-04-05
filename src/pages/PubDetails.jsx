@@ -8,6 +8,8 @@ export default function PubDetails() {
   const { id } = useParams();
   const { data, error, isLoading } = useGetPublisherArticalsQuery(id);
 
+  console.log(data)
+
   const title = (
     <p>
       All articles of <span className="text-red-500">{id}</span>
