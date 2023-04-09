@@ -21,7 +21,7 @@ export default function Article({ articles, title }) {
       <div className=" grid grid-cols-4  md:grid-cols-1 gap-24 items-start ">
         {/* All articles */}
         <div className="col-span-full">
-          <h1 className="text-2xl flex items-center gap-3  font-bold tracking-wide uppercase  static top-3">
+          <h1 className="text-2xl lg:text-2xl flex items-center gap-3  font-bold tracking-wide uppercase  static top-3 ">
             {title}
             <BsArrowDown className="text-lg" />
           </h1>

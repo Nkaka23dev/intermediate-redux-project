@@ -7,14 +7,17 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PageNotFound from "./components/PageNotFound";
 
 import PubDetails from "./pages/PubDetails";
-
+import ModNavBar from "./layouts/ModNavBar";
 
 export default function App() {
   return (
     <>
       <Provider store={store}>
         <Router>
-          <Navbar />
+          <>\\
+            <Navbar />
+            <ModNavBar />
+          </>
           <Switch>
             <Route exact path="/">
               <Articles />

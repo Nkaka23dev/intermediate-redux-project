@@ -11,7 +11,7 @@ export default function Articles() {
   const searched = useSelector((state) => state.articles.searched);
   return (
     <>
-      <section className="max-w-7xl mx-auto mt-40 pb-10">
+      <section className="max-w-7xl mx-auto lg:mt-20 mt-40 pb-10">
         <ErrorAndLoading error={error} isLoading={isLoading} />
         {data && (
           <div>
