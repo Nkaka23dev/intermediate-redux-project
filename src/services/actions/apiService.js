@@ -20,9 +20,9 @@ export const articleApi = createApi({
         getPublisherArticals: builder.query({
             query: (publisher) => `everything?sources=${publisher}&pageSize=10`
         }),
-        // getSearchedArticles: builder.query({
-        //     query: (searched) => `everything?q=${searched}&pageSize=10`
-        // })
+        getSearchedArticles: builder.query({
+            query: (searched) => `everything?q=${searched}&pageSize=10`
+        })
     })
 })
 
@@ -30,5 +30,5 @@ export const {
     useGetAllArticlesQuery,
     useGetPublishersQuery,
     useGetPublisherArticalsQuery,
-    // useGetSearchedArticlesQuery
+    useGetSearchedArticlesQuery
 } = articleApi;
