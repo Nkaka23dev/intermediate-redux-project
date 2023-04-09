@@ -5,8 +5,9 @@ import Navbar from "./layouts/Navbar";
 import { store } from "./services/actions/store";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PageNotFound from "./components/PageNotFound";
-import ArticlesDetails from "./pages/ArticlesDetails";
+
 import PubDetails from "./pages/PubDetails";
+
 
 export default function App() {
   return (
@@ -18,9 +19,12 @@ export default function App() {
             <Route exact path="/">
               <Articles />
             </Route>
-            <Route path="/blog/:id">
+            {/* <Route path="/blog/:id">
               <ArticlesDetails />
             </Route>
+            <Route path="/searched/:id">
+              <SearchedArticlesDetails />
+            </Route> */}
             <Route path="/publisher/:id">
               <PubDetails />
             </Route>

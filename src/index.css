@@ -1,11 +1,17 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
 
-body{
+body {
   @apply bg-gray-100;
   font-family: 'Roboto', sans-serif;
-} 
+}
+
+/* Webkit browsers */
+.hideScroll::-webkit-scrollbar {
+  display: none;
+
+}
 
 .loading-circle {
   display: inline-block;
@@ -18,8 +24,11 @@ body{
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
-
-

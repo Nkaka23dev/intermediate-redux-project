@@ -18,8 +18,9 @@ export default function Navbar() {
   };
 
   return (
-    <section className="shadow-md fixed left-0 right-0 top-0 w-full bg-white z-50">
-      <div className="max-w-6xl  mx-auto  py-6 flex gap-10 justify-between items-center flex-wrap md:flex-col">
+   <section className="">
+     <div className="shadow-md fixed left-0 right-0 top-0 w-full bg-white z-50">
+      <div className="max-w-7xl px-5   mx-auto  py-6 flex gap-10 justify-between items-center flex-wrap md:flex-col">
         <div>
           <Link
             to="/"
@@ -58,6 +59,7 @@ export default function Navbar() {
           </Link>
         </div>
       </div>
-    </section>
+    </div>
+   </section>
   );
 }

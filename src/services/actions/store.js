@@ -3,7 +3,8 @@ import { articleApi } from "./apiService";
 
 const initialState = {
   publisherId: "",
-  searched: ""
+  searched: "",
+  showPopUp: false
 }
 const useSlice = createSlice({
   name: "articles",
@@ -14,6 +15,9 @@ const useSlice = createSlice({
     },
     setSearched: (state, action) => {
       state.searched = action.payload;
+    },
+    setShowPopUp: (state, action) => {
+      state.showPopUp = action.payload.showPopUp;
     }
   }
 })
@@ -21,7 +25,8 @@ export const {
   publisherId,
   setPublisherId,
   searched,
-  setSearched
+  setSearched,
+  setShowPopUp
 } = useSlice.actions;
 
 export const store = configureStore({
