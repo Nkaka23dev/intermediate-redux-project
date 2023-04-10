@@ -4,6 +4,7 @@ import { setShowPopUp } from "../services/actions/store";
 export default function Details({ data }) {
   const dispatch = useDispatch();
   const popUp = useSelector((state) => state.articles.showPopUp);
+  
   const handleClick = () => {
     dispatch(setShowPopUp({ showPopUp: false }));
   };

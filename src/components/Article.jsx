@@ -6,22 +6,24 @@ import Details from "./Details";
 
 export default function Article({ articles, title }) {
   const dispatch = useDispatch();
-  const [detailsData, setDetailsData] = useState();
+  const [detailsData, setDetailsData] = useState(null);
+
   const popUp = useSelector((state) => state.articles.showPopUp);
+
   const handleClick = () => {
     dispatch(setShowPopUp({ showPopUp: true }));
   };
 
   const addData = (data) => {
     setDetailsData(data);
-
   };
+
   return (
     <section className="px-5">
       <div className=" grid grid-cols-4  md:grid-cols-1 gap-24 items-start ">
         {/* All articles */}
         <div className="col-span-full">
-          <h1 className="text-2xl lg:text-2xl flex items-center gap-3  font-bold tracking-wide uppercase  static top-3 ">
+          <h1 className="text-2xl lg:text-2xl pt-10 flex items-center gap-3  font-bold tracking-wide uppercase top-3 ">
             {title}
             <BsArrowDown className="text-lg" />
           </h1>
@@ -67,7 +69,7 @@ export default function Article({ articles, title }) {
           )}
         </div>
       </div>
-      {popUp && <Details data={detailsData}/>}
+      {popUp && <Details data={detailsData} />}
     </section>
   );
 }
