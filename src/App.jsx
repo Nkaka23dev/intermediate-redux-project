@@ -14,7 +14,7 @@ export default function App() {
     <>
       <Provider store={store}>
         <Router>
-          <>\\
+          <>
             <Navbar />
             <ModNavBar />
           </>
@@ -22,12 +22,6 @@ export default function App() {
             <Route exact path="/">
               <Articles />
             </Route>
-            {/* <Route path="/blog/:id">
-              <ArticlesDetails />
-            </Route>
-            <Route path="/searched/:id">
-              <SearchedArticlesDetails />
-            </Route> */}
             <Route path="/publisher/:id">
               <PubDetails />
             </Route>

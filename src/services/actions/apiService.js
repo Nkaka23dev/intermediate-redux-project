@@ -18,10 +18,16 @@ export const articleApi = createApi({
             query: () => `top-headlines/sources`
         }),
         getPublisherArticals: builder.query({
-            query: (publisher) => `everything?sources=${publisher}&pageSize=10`
+            query: (publisher) => {
+                `everything?sources=${publisher}&pageSize=10`;
+            },
         }),
         getSearchedArticles: builder.query({
-            query: (searched) => `everything?q=${searched}&pageSize=10`
+            query: (searched) => {
+                if (searched) {
+                    return `everything?q=${searched}&pageSize=10`;
+                }
+            },
         })
     })
 })
