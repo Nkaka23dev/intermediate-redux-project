@@ -3,7 +3,7 @@ import { articleApi } from "./apiService";
 
 const initialState = {
   publisherId: "",
-  searched: "",
+  searched: null,
   showPopUp: false,
   showModal: false
 }

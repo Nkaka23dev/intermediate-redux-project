@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { BsArrowRight, BsArrowDown } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { setShowPopUp } from "../services/actions/store";
+import { setShowPopUp } from "../services/features/store";
 import Details from "./Details";
 
-export default function Article({ articles, title }) {
+export default function Article({ articles, title, resetData }) {
   const dispatch = useDispatch();
   const [detailsData, setDetailsData] = useState(null);
 
@@ -23,13 +23,22 @@ export default function Article({ articles, title }) {
       <div className=" grid grid-cols-4  md:grid-cols-1 gap-24 items-start ">
         {/* All articles */}
         <div className="col-span-full">
-          <h1 className="text-2xl lg:text-2xl pt-10 flex items-center gap-3  font-bold tracking-wide uppercase top-3 ">
+          <h1 className="text-2xl lg:text-2xl pt-10 flex items-center gap-3 tracking-wide uppercase top-3 ">
             {title}
             <BsArrowDown className="text-lg" />
+            {title === "Search Results" && (
+              <button
+                onClick={resetData}
+                className="text-white bg-sky-500 px-10 py-2 rounded-sm hover:bg-sky-600"
+              >
+                Reset
+              </button>
+            )}
           </h1>
+
           {articles.length ? (
             <div className="grid grid-cols-3 gap-7 lg:grid-cols-2  sm:grid-cols-1 mt-10">
-              {articles.map((article, index) => {
+              {articles.map((article) => {
                 return (
                   <div
                     onClick={(event) => {

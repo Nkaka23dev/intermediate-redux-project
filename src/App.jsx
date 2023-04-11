@@ -2,7 +2,7 @@ import { Provider } from "react-redux";
 import Articles from "./components/Articles";
 import Footer from "./layouts/Footer";
 import Navbar from "./layouts/Navbar";
-import { store } from "./services/actions/store";
+import { store } from "./services/features/store";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PageNotFound from "./components/PageNotFound";
 
@@ -14,10 +14,8 @@ export default function App() {
     <>
       <Provider store={store}>
         <Router>
-          <>
-            <Navbar />
-            <ModNavBar />
-          </>
+          <Navbar />
+          <ModNavBar />
           <Switch>
             <Route exact path="/">
               <Articles />

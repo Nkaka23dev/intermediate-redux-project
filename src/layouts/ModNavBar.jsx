@@ -2,8 +2,7 @@ import { FiMenu } from "react-icons/fi";
 import MobNavModal from "../components/MobNavModal";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setShowModal } from "../services/actions/store";
-
+import { setShowModal } from "../services/features/store";
 
 export default function ModNavBar() {
   const popUp = useSelector((state) => state.articles.showModal);
@@ -30,7 +29,6 @@ export default function ModNavBar() {
         </div>
         {popUp && <MobNavModal />}
       </div>
-    
     </section>
   );
 }
