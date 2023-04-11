@@ -8,42 +8,53 @@ import ErrorAndLoading from "./ErrorAndLoading";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
-useGetSearchedArticlesQuery;
-
 export default function Articles() {
   const { data, error, isLoading } = useGetAllArticlesQuery();
-  const [searchedData, SetSearchedData] = useState(null);
-
+  const [searchResult, setSearchResult] = useState(null);
   const searched = useSelector((state) => state.articles.searched);
-  const {
+
+  let {
     data: searchData,
     error: searchError,
-    isLoading: searchloading,
+    isLoading: searchLoading,
   } = useGetSearchedArticlesQuery(searched);
-
   useEffect(() => {
     if (searchData) {
-      SetSearchedData(searchData.articles);
+      setSearchResult(searchData);
     }
-    console.log(searchData);
   }, [searchData]);
 
+  const resetData = () => {
+    setSearchResult(null);
+  };
   return (
     <>
       <section className="max-w-7xl mx-auto lg:mt-20 mt-24 pb-10">
         <ErrorAndLoading
           error={error}
-          isLoading={searchloading ? searchloading : isLoading}
+          isLoading={searchLoading ? searchLoading : isLoading}
         />
-        {data && (
-          <div>
-            <Article
-              title={searchedData ? "Search Results" : "All Articles"}
-              articles={searchedData ? searchedData : data.articles}
-            />
-            <Publishers />
-          </div>
-        )}
+        {searchResult
+          ? searchResult && (
+              <div>
+                <Article
+                  resetData={resetData}
+                  title="Search Results"
+                  articles={searchResult?.articles}
+                />
+                <Publishers />
+              </div>
+            )
+          : data && (
+              <div>
+                <Article
+                  resetData={resetData}
+                  title="All Articles"
+                  articles={data?.articles}
+                />
+                <Publishers />
+              </div>
+            )}
       </section>
     </>
   );

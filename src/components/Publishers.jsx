@@ -6,6 +6,7 @@ import ErrorAndLoading from "./ErrorAndLoading";
 
 export default function Publishers() {
   const { data, error, isLoading } = useGetPublishersQuery();
+ 
   return (
     <section className="px-5">
       <div className="py-8 flex flex-col md:px-4">
