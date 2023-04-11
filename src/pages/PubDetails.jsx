@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Article from "../components/Article";
-import { useGetPublisherArticalsQuery, useGetSearchedArticlesQuery } from "../services/actions/apiService";
+import {
+  useGetPublisherArticalsQuery,
+  useGetSearchedArticlesQuery,
+} from "../services/features/apiService";
 import ErrorAndLoading from "../components/ErrorAndLoading";
 import { useSelector } from "react-redux";
 export default function PubDetails() {
   const { id } = useParams();
-  console.log(id);
   const { data, error, isLoading } = useGetPublisherArticalsQuery(id);
   const [searchResult, setSearchResult] = useState(null);
   const searched = useSelector((state) => state.articles.searched);
@@ -34,10 +36,7 @@ export default function PubDetails() {
   return (
     <>
       <section className="max-w-6xl mx-auto mt-20 pb-10">
-        <ErrorAndLoading
-          error={error}
-          isLoading={searchLoading ? searchLoading : isLoading}
-        />
+        <ErrorAndLoading error={error} isLoading={searchLoading || isLoading} />
         {searchResult
           ? searchResult && (
               <div>

@@ -2,7 +2,7 @@ import { TfiSearch } from "react-icons/tfi";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSearched as setSearchedAction } from "../services/actions/store";
+import { setSearched as setSearchedAction } from "../services/features/store";
 
 export default function MobNavModal() {
   const [search, setSearch] = useState("");

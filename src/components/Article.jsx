@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { BsArrowRight, BsArrowDown } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { setShowPopUp } from "../services/actions/store";
+import { setShowPopUp } from "../services/features/store";
 import Details from "./Details";
 
-export default function Article({ articles, title, resetData}) {
+export default function Article({ articles, title, resetData }) {
   const dispatch = useDispatch();
   const [detailsData, setDetailsData] = useState(null);
 

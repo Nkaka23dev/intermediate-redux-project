@@ -1,12 +1,12 @@
 import React from "react";
 import { GrArticle } from "react-icons/gr";
 import { Link } from "react-router-dom";
-import { useGetPublishersQuery } from "../services/actions/apiService";
+import { useGetPublishersQuery } from "../services/features/apiService";
 import ErrorAndLoading from "./ErrorAndLoading";
 
 export default function Publishers() {
   const { data, error, isLoading } = useGetPublishersQuery();
- 
+
   return (
     <section className="px-5">
       <div className="py-8 flex flex-col md:px-4">
@@ -18,7 +18,7 @@ export default function Publishers() {
           <div className="grid grid-cols-5 sm:grid-cols-1 lg:grid-cols-2 sm:col-start-2  w-full">
             {data.sources.map((publisher, idx) => {
               return (
-                <Link key={idx} to={`publisher/${publisher.id}`}>
+                <Link key={publisher.url} to={`publisher/${publisher.id}`}>
                   <div
                     key={idx}
                     className="flex duration-300 delay-300 hover:underline cursor-pointer  py-2 justify-between items-start"

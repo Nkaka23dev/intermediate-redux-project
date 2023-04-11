@@ -1,7 +1,7 @@
 import {
   useGetAllArticlesQuery,
   useGetSearchedArticlesQuery,
-} from "../services/actions/apiService";
+} from "../services/features/apiService";
 import Article from "./Article";
 import Publishers from "./Publishers";
 import ErrorAndLoading from "./ErrorAndLoading";
@@ -28,12 +28,9 @@ export default function Articles() {
     setSearchResult(null);
   };
   return (
-    <>
-      <section className="max-w-7xl mx-auto lg:mt-20 mt-24 pb-10">
-        <ErrorAndLoading
-          error={error}
-          isLoading={searchLoading ? searchLoading : isLoading}
-        />
+    <section>
+      <div className="max-w-7xl mx-auto lg:mt-20 mt-24 pb-10">
+        <ErrorAndLoading error={error} isLoading={searchLoading || isLoading} />
         {searchResult
           ? searchResult && (
               <div>
@@ -55,7 +52,7 @@ export default function Articles() {
                 <Publishers />
               </div>
             )}
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

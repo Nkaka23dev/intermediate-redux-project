@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { TfiSearch } from "react-icons/tfi";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { setSearched as setSearchedAction } from "../services/actions/store";
+import { setSearched as setSearchedAction } from "../services/features/store";
 
 export default function Navbar() {
   const [search, setSearch] = useState("");

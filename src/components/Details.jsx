@@ -1,14 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setShowPopUp } from "../services/actions/store";
+import { setShowPopUp } from "../services/features/store";
 
 export default function Details({ data }) {
   const dispatch = useDispatch();
   const popUp = useSelector((state) => state.articles.showPopUp);
-  
+
   const handleClick = () => {
     dispatch(setShowPopUp({ showPopUp: false }));
   };
-  console.log(data);
   return (
     <section className="">
       <div className="h-screen bg-white grid w-full mx-auto fixed z-50 inset-0 ">
@@ -37,16 +36,23 @@ export default function Details({ data }) {
                     </p>
                   </div>
                 </div>
-                <p className="text-lg  md:text-md text-gray-700">{data.content}</p>
-                <p className="text-lg md:text-md text-gray-700">{data.description}</p>
-                <div className="py-10">
-                <p className="text-xl  md:text-md ">
-                  More Info visit the link{" "}
-                  <a className="cursor-pointer underline text-blue-500" href={data.url}>
-                    {data.source.name}
-                  </a>
+                <p className="text-lg  md:text-md text-gray-700">
+                  {data.content}
                 </p>
-              </div>
+                <p className="text-lg md:text-md text-gray-700">
+                  {data.description}
+                </p>
+                <div className="py-10">
+                  <p className="text-xl  md:text-md ">
+                    More Info visit the link{" "}
+                    <a
+                      className="cursor-pointer underline text-blue-500"
+                      href={data.url}
+                    >
+                      {data.source.name}
+                    </a>
+                  </p>
+                </div>
               </div>
               <div className="col-span-3 lg:order-1">
                 <img
