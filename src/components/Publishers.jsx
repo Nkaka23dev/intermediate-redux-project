@@ -18,7 +18,7 @@ export default function Publishers() {
     <section className="px-5">
       <div className="py-8 flex flex-col md:px-4">
         <h1 className="text-2xl mb-6 text-center font-bold tracking-wide underline capitalize text-red-500">
-          All News Publishers
+          News Publishers
         </h1>
         <ErrorAndLoading error={error} isLoading={isLoading} />
         {data && (
