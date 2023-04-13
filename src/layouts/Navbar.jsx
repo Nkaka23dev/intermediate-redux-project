@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TfiSearch } from "react-icons/tfi";
 import { useDispatch} from "react-redux";
-import debounce from 'lodash.debounce';
+
 import { Link } from "react-router-dom";
 import { setSearchResult, setSearched, setSearched as setSearchedAction } from "../services/features/store";
 
