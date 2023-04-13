@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { TfiSearch } from "react-icons/tfi";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
+import debounce from 'lodash.debounce';
 import { Link } from "react-router-dom";
-import { setSearched as setSearchedAction } from "../services/features/store";
+import { setSearchResult, setSearched, setSearched as setSearchedAction } from "../services/features/store";
 
 export default function Navbar() {
   const [search, setSearch] = useState("");
@@ -12,7 +13,14 @@ export default function Navbar() {
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
   };
-
+  const debouncedSearch = debounce((searchQuery) => {
+    if (searchQuery !== prevSearch) {
+      dispatch(setSearchedAction(searchQuery));
+      setPrevSearch(searchQuery);
+    }
+    setSearch("");
+  }, 500); // Change the debounce delay as per your requirements
+  
   const handleSearchClick = (e) => {
     e.preventDefault();
     if (search !== prevSearch) {
@@ -20,6 +28,7 @@ export default function Navbar() {
       setPrevSearch(search);
     }
     setSearch("");
+   
   };
   return (
     <section className="lg:hidden">
@@ -34,7 +43,7 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="flex-1 relative cursor-pointer">
-            <form action="#" onSubmit={handleSearchClick}>
+            <form  onSubmit={handleSearchClick}>
               <input
                 value={search}
                 placeholder="Search.."

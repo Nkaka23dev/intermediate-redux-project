@@ -5,7 +5,8 @@ const initialState = {
   publisherId: "",
   searched: null,
   showPopUp: false,
-  showModal: false
+  showModal: false,
+  searchResult: null
 }
 const useSlice = createSlice({
   name: "articles",
@@ -16,6 +17,9 @@ const useSlice = createSlice({
     },
     setSearched: (state, action) => {
       state.searched = action.payload;
+    },
+    setSearchResult: (state, action) => {
+      state.searchResult = action.payload;
     },
     setShowPopUp: (state, action) => {
       state.showPopUp = action.payload.showPopUp;
@@ -30,6 +34,7 @@ export const {
   setPublisherId,
   searched,
   setSearched,
+  setSearchResult,
   setShowPopUp,
   setShowModal
 } = useSlice.actions;

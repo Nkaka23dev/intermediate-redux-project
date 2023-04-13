@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { BsArrowRight, BsArrowDown } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { setShowPopUp } from "../services/features/store";
+import { setSearchResult, setSearched, setShowPopUp } from "../services/features/store";
 import Details from "./Details";
 
-export default function Article({ articles, title, resetData }) {
+
+export default function Article({ articles, title }) {
   const dispatch = useDispatch();
   const [detailsData, setDetailsData] = useState(null);
-
   const popUp = useSelector((state) => state.articles.showPopUp);
 
+  const resetData = () => {
+    dispatch(setSearchResult(null));
+    dispatch(setSearched(null))
+  };
   const handleClick = () => {
     dispatch(setShowPopUp({ showPopUp: true }));
   };
@@ -17,7 +21,6 @@ export default function Article({ articles, title, resetData }) {
   const addData = (data) => {
     setDetailsData(data);
   };
-
   return (
     <section className="px-5">
       <div className=" grid grid-cols-4  md:grid-cols-1 gap-24 items-start ">
