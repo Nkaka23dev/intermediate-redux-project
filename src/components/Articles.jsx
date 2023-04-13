@@ -5,28 +5,28 @@ import {
 import Article from "./Article";
 import Publishers from "./Publishers";
 import ErrorAndLoading from "./ErrorAndLoading";
-import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { setSearchResult } from "../services/features/store";
 
 export default function Articles() {
   const { data, error, isLoading } = useGetAllArticlesQuery();
-  const [searchResult, setSearchResult] = useState(null);
   const searched = useSelector((state) => state.articles.searched);
+  const searchResult = useSelector((state) => state.articles.searchResult);
 
-  let {
+  const {
     data: searchData,
     error: searchError,
     isLoading: searchLoading,
   } = useGetSearchedArticlesQuery(searched);
-  useEffect(() => {
-    if (searchData) {
-      setSearchResult(searchData);
-    }
-  }, [searchData]);
 
-  const resetData = () => {
-    setSearchResult(null);
-  };
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (searchData?.articles) {
+      dispatch(setSearchResult(searchData.articles));
+    }
+  }, [searchData?.articles]);
   return (
     <section>
       <div className="max-w-7xl mx-auto lg:mt-20 mt-24 pb-10">
@@ -34,21 +34,13 @@ export default function Articles() {
         {searchResult
           ? searchResult && (
               <div>
-                <Article
-                  resetData={resetData}
-                  title="Search Results"
-                  articles={searchResult?.articles}
-                />
+                <Article title="Search Results" articles={searchResult} />
                 <Publishers />
               </div>
             )
           : data && (
               <div>
-                <Article
-                  resetData={resetData}
-                  title="All Articles"
-                  articles={data?.articles}
-                />
+                <Article title="All Articles" articles={data?.articles} />
                 <Publishers />
               </div>
             )}
