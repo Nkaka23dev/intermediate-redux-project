@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { TfiSearch } from "react-icons/tfi";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { Link } from "react-router-dom";
-import { setSearchResult, setSearched, setSearched as setSearchedAction } from "../services/features/store";
+import { setSearched as setSearchedAction } from "../services/features/store";
 
 export default function Navbar() {
   const [search, setSearch] = useState("");
@@ -13,7 +13,7 @@ export default function Navbar() {
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
   };
-  
+
   const handleSearchClick = (e) => {
     e.preventDefault();
     if (search !== prevSearch) {
@@ -21,7 +21,6 @@ export default function Navbar() {
       setPrevSearch(search);
     }
     setSearch("");
-   
   };
   return (
     <section className="lg:hidden">
@@ -36,13 +35,13 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="flex-1 relative cursor-pointer">
-            <form  onSubmit={handleSearchClick}>
+            <form onSubmit={handleSearchClick}>
               <input
                 value={search}
-                placeholder="Search articals.."
+                placeholder="Search articals....."
                 type="text"
                 onChange={handleSearchChange}
-                className="w-full px-5  border py-2 rounded-full border-gray-500 focus:outline-0"
+                className="w-full px-5 border py-2 rounded-full border-gray-500 focus:outline-[0.5]"
               />
               <button className="absolute right-3 top-2 cursor-pointer hover:scale-105">
                 <TfiSearch className="text-2xl text-gray-500 " />
