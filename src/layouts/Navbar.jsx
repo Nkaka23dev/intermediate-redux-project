@@ -39,9 +39,8 @@ export default function Navbar() {
             <form  onSubmit={handleSearchClick}>
               <input
                 value={search}
-                placeholder="Search.."
+                placeholder="Search articals.."
                 type="text"
-                onClick={(e) => e.target.focus()}
                 onChange={handleSearchChange}
                 className="w-full px-5  border py-2 rounded-full border-gray-500 focus:outline-0"
               />
