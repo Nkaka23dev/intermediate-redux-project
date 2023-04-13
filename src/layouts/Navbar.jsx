@@ -13,13 +13,6 @@ export default function Navbar() {
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
   };
-  const debouncedSearch = debounce((searchQuery) => {
-    if (searchQuery !== prevSearch) {
-      dispatch(setSearchedAction(searchQuery));
-      setPrevSearch(searchQuery);
-    }
-    setSearch("");
-  }, 500); // Change the debounce delay as per your requirements
   
   const handleSearchClick = (e) => {
     e.preventDefault();
